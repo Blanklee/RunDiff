@@ -71,7 +71,7 @@ object MainForm: TMainForm
     Lines.Strings = (
       'diff '#47749#47161' '#44036#54200' '#49892#54665#44592' v1.0'
       ''
-      'cmd /c diff -u file1 file2 > ddd'
+      'cmd /c diff -ur file1 file2 > ddd'
       'vi ddd'
       '')
     ScrollBars = ssVertical

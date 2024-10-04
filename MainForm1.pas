@@ -82,8 +82,8 @@ begin
     Memo1.Lines.Add ('');
 
     // Diff 명령을 실행한다
-//  ShellExecute (0, nil, PChar('"C:\Program Files\GnuWin32\diff.exe"'), PChar('-u "' + File1 + '" "' + File2 + '" > "' + FFolderName + '\ddd"'), PChar(FFolderName), SW_NORMAL);
-    ShellExecute (0, nil, PChar('cmd'), PChar('/c diff -u "' + File1 + '" "' + File2 + '" > ddd'), PChar(FFolderName), SW_NORMAL);
+//  ShellExecute (0, nil, PChar('"C:\Program Files\GnuWin32\diff.exe"'), PChar('-ur "' + File1 + '" "' + File2 + '" > "' + FFolderName + '\ddd"'), PChar(FFolderName), SW_NORMAL);
+    ShellExecute (0, nil, PChar('cmd'), PChar('/c diff -ur "' + File1 + '" "' + File2 + '" > ddd'), PChar(FFolderName), SW_NORMAL);
     ShellExecute (0, nil, PChar('"C:\Program Files\gvim\gvim.exe"'), PChar('"' + FFolderName + '\ddd"'), nil, SW_NORMAL);
 end;
 
