@@ -1,9 +1,9 @@
 object MainForm: TMainForm
   Left = 192
   Top = 107
-  Width = 574
-  Height = 370
-  Caption = 'DIFF '#47749#47161' '#44036#54200' '#49892#54665#44592
+  Width = 593
+  Height = 391
+  Caption = 'Run DIFF'
   Color = clBtnFace
   Font.Charset = HANGEUL_CHARSET
   Font.Color = clWindowText
@@ -14,36 +14,36 @@ object MainForm: TMainForm
   Position = poDefaultPosOnly
   OnCreate = FormCreate
   DesignSize = (
-    566
-    343)
+    577
+    352)
   PixelsPerInch = 96
   TextHeight = 12
   object Label1: TLabel
     Left = 16
     Top = 16
-    Width = 34
+    Width = 30
     Height = 12
-    Caption = #54028#51068'1:'
+    Caption = 'File1:'
   end
   object Label2: TLabel
     Left = 16
     Top = 40
-    Width = 34
+    Width = 30
     Height = 12
-    Caption = #54028#51068'2:'
+    Caption = 'File2:'
   end
   object Button1: TButton
     Left = 48
     Top = 64
-    Width = 137
+    Width = 105
     Height = 25
-    Caption = '&DIFF '#47749#47161' '#49892#54665'!'
+    Caption = '&Run DIFF !'
     Default = True
     TabOrder = 1
     OnClick = Button1Click
   end
   object Button5: TButton
-    Left = 432
+    Left = 400
     Top = 64
     Width = 73
     Height = 25
@@ -53,7 +53,7 @@ object MainForm: TMainForm
     OnClick = Button5Click
   end
   object Button3: TButton
-    Left = 272
+    Left = 240
     Top = 64
     Width = 73
     Height = 25
@@ -69,7 +69,7 @@ object MainForm: TMainForm
     Anchors = [akLeft, akTop, akRight, akBottom]
     ImeName = 'Microsoft Office IME 2007'
     Lines.Strings = (
-      'diff '#47749#47161' '#44036#54200' '#49892#54665#44592' v1.0'
+      'Run Diff v1.3'
       ''
       'cmd /c diff -ur file1 file2 > ddd'
       'vi ddd'
@@ -78,7 +78,7 @@ object MainForm: TMainForm
     TabOrder = 0
   end
   object Button4: TButton
-    Left = 352
+    Left = 320
     Top = 64
     Width = 73
     Height = 25
@@ -87,11 +87,11 @@ object MainForm: TMainForm
     OnClick = Button4Click
   end
   object Button2: TButton
-    Left = 192
+    Left = 160
     Top = 64
     Width = 73
     Height = 25
-    Caption = '&VI '#49892#54665
+    Caption = 'Run &VI'
     TabOrder = 2
     OnClick = Button2Click
   end
