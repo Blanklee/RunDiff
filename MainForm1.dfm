@@ -3,7 +3,7 @@ object MainForm: TMainForm
   Top = 107
   Width = 593
   Height = 391
-  Caption = 'Run DIFF'
+  Caption = 'Run DIFF v1.3a'
   Color = clBtnFace
   Font.Charset = HANGEUL_CHARSET
   Font.Color = clWindowText
@@ -69,10 +69,10 @@ object MainForm: TMainForm
     Anchors = [akLeft, akTop, akRight, akBottom]
     ImeName = 'Microsoft Office IME 2007'
     Lines.Strings = (
-      'Run Diff v1.3'
+      'Run Diff v1.3a'
       ''
-      'cmd /c diff -ur file1 file2 > ddd'
-      'vi ddd'
+      'cmd /c diff -ur file1 file2 > Result.diff'
+      'notepad Result.diff'
       '')
     ScrollBars = ssVertical
     TabOrder = 0

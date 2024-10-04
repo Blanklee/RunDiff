@@ -29,7 +29,7 @@ type
     File1: string;
     File2: string;
     FDiffCmd: string;
-    FGvimCmd: string;
+    FShowCmd: string;
     FFolderName: string;
     procedure LoadFromIniFile;
   public
@@ -55,13 +55,13 @@ var
   IniFile: TIniFile;
 begin
   FDiffCmd:= '';
-  FGvimCmd:= '';
+  FShowCmd:= '';
   IniFile:= TIniFile.Create(FFolderName + '\RunDiff.ini');
 
   try
     try
-      FDiffCmd:= IniFile.ReadString('Options', 'Diff Command', 'C:\Program Files (x86)\GnuWin32\diff.exe');
-      FGvimCmd:= IniFile.ReadString('Options', 'Gvim Command', 'C:\Program Files (x86)\gvim\gvim.exe');
+      FDiffCmd:= IniFile.ReadString('Options', 'Diff Command', 'C:\GnuWin32\diff.exe');
+      FShowCmd:= IniFile.ReadString('Options', 'Show Command', 'C:\Windows\notepad.exe');
     except
     end;
   finally
@@ -104,23 +104,23 @@ begin
   Memo1.Lines.Add('cmd /c "' + FDiffCmd + '" -ur');
   Memo1.Lines.Add('"' + File1 + '"');
   Memo1.Lines.Add('"' + File2 + '"');
-  Memo1.Lines.Add('> "' + FFolderName + '\ddd"');
+  Memo1.Lines.Add('> "' + FFolderName + '\Result.diff"');
   Memo1.Lines.Add('');
 
   // Diff 명령을 실행한다
-  // ShellExecute (0, nil, PChar('"C:\Program Files\GnuWin32\diff.exe"'), PChar('-ur "' + File1 + '" "' + File2 + '" > "' + FFolderName + '\ddd"'), PChar(FFolderName), SW_NORMAL);
-  diff:= '/c ""' + FDiffCmd + '" -ur "' + File1 + '" "' + File2 + '" > ddd"';
+  // ShellExecute (0, nil, PChar('"C:\Program Files\GnuWin32\diff.exe"'), PChar('-ur "' + File1 + '" "' + File2 + '" > "' + FFolderName + '\Result.diff"'), PChar(FFolderName), SW_NORMAL);
+  diff:= '/c ""' + FDiffCmd + '" -ur "' + File1 + '" "' + File2 + '" > Result.diff"';
   ShellExecute (0, nil, PChar('cmd'), PChar(diff), PChar(FFolderName), SW_NORMAL);
 
-  // gvim 명령을 실행한다
-  ShellExecute (0, nil, PChar(FGvimCmd), PChar('"' + FFolderName + '\ddd"'), nil, SW_NORMAL);
+  // Notepad 명령을 실행한다
+  ShellExecute (0, nil, PChar(FShowCmd), PChar('"' + FFolderName + '\Result.diff"'), nil, SW_NORMAL);
 end;
 
 procedure TMainForm.Button2Click(Sender: TObject);
 begin
-  // FGvimCmd는 중간에 공백이 있더라도 아래처럼 ""로 묶어주지 않아도 된다
-  // ShellExecute (0, nil, PChar('"' + FGvimCmd + '"'), PChar('"' + FFolderName + '\ddd"'), nil, SW_NORMAL);
-  ShellExecute (0, nil, PChar(FGvimCmd), PChar('"' + FFolderName + '\ddd"'), nil, SW_NORMAL);
+  // FShowCmd는 중간에 공백이 있더라도 아래처럼 ""로 묶어주지 않아도 된다
+  // ShellExecute (0, nil, PChar('"' + FShowCmd + '"'), PChar('"' + FFolderName + '\Result.diff"'), nil, SW_NORMAL);
+  ShellExecute (0, nil, PChar(FShowCmd), PChar('"' + FFolderName + '\Result.diff"'), nil, SW_NORMAL);
 end;
 
 procedure TMainForm.Button3Click(Sender: TObject);
