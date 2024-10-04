@@ -12,18 +12,18 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Button1: TButton;
+    Button2: TButton;
     Button3: TButton;
+    Button4: TButton;
     Button5: TButton;
     Memo1: TMemo;
-    Button4: TButton;
-    Button2: TButton;
     procedure FormCreate(Sender: TObject);
     procedure FileDrop1Drop(Sender: TObject);
     procedure Button1Click(Sender: TObject);
-    procedure Button3Click(Sender: TObject);
-    procedure Button5Click(Sender: TObject);
-    procedure Button4Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+    procedure Button4Click(Sender: TObject);
+    procedure Button5Click(Sender: TObject);
   private
     { Private declarations }
     File1: string;
@@ -84,12 +84,12 @@ begin
     // Diff 명령을 실행한다
 //  ShellExecute (0, nil, PChar('"C:\Program Files\GnuWin32\diff.exe"'), PChar('-u "' + File1 + '" "' + File2 + '" > "' + FFolderName + '\ddd"'), PChar(FFolderName), SW_NORMAL);
     ShellExecute (0, nil, PChar('cmd'), PChar('/c diff -u "' + File1 + '" "' + File2 + '" > ddd'), PChar(FFolderName), SW_NORMAL);
-    ShellExecute (0, nil, PChar('"C:\Program Files\GnuWin32\vi"'), PChar('"' + FFolderName + '\ddd"'), nil, SW_NORMAL);
+    ShellExecute (0, nil, PChar('"C:\Program Files\gvim\gvim.exe"'), PChar('"' + FFolderName + '\ddd"'), nil, SW_NORMAL);
 end;
 
 procedure TMainForm.Button2Click(Sender: TObject);
 begin
-    ShellExecute (0, nil, PChar('"C:\Program Files\GnuWin32\vi"'), PChar('"' + FFolderName + '\ddd"'), nil, SW_NORMAL);
+    ShellExecute (0, nil, PChar('"C:\Program Files\gvim\gvim.exe"'), PChar('"' + FFolderName + '\ddd"'), nil, SW_NORMAL);
 end;
 
 procedure TMainForm.Button3Click(Sender: TObject);

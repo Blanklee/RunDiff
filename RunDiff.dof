@@ -115,7 +115,7 @@ AutoIncBuild=1
 MajorVer=3
 MinorVer=0
 Release=0
-Build=385
+Build=388
 Debug=0
 PreRelease=0
 Special=0
@@ -126,7 +126,7 @@ CodePage=1252
 [Version Info Keys]
 CompanyName=OverByte - http://www.overbyte.be
 FileDescription=Internet Component Suite
-FileVersion=3.0.0.385
+FileVersion=3.0.0.388
 InternalName=IcsDel70
 LegalCopyright=http://www.overbyte.be
 LegalTrademarks=(c) 1996-2004 by Francois Piette
